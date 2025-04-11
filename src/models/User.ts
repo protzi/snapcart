@@ -1,13 +1,13 @@
-export class User {
-    constructor(
-        public id: string,
-        public username: string,
-        public passwordHash: string,
-        public email: string
-    ) {}
+import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
-    validatePassword(password: string): boolean {
-        // Implement password validation logic
-        return true; // Placeholder
-    }
+@Entity()
+export class User {
+    @PrimaryGeneratedColumn()
+    id: number;
+
+    @Column({ unique: true })
+    username: string;
+
+    @Column()
+    password: string; // Store hashed passwords for security
 }
