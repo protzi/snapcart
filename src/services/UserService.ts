@@ -19,6 +19,11 @@ export class UserService {
         return null;
     }
 
+    public async getUserById(userId: string): Promise<User | null> {
+        const user = this.users.find(u => u.id === userId);
+        return user || null;
+    }
+
     private generateId(): string {
         return (this.users.length + 1).toString();
     }
