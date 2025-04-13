@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database';
 
-class User extends Model {}
+class Product extends Model {}
 
-User.init({
+Product.init({
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -13,18 +13,21 @@ User.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
+  description: {
+    type: DataTypes.TEXT,
     allowNull: false,
-    unique: true,
   },
-  password_hash: {
+  price: {
+    type: DataTypes.FLOAT,
+    allowNull: false,
+  },
+  image_url: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 }, {
   sequelize,
-  modelName: 'User',
+  modelName: 'Product',
 });
 
-export default User;
+export default Product;

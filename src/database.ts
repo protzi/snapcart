@@ -1,12 +1,8 @@
-import { createConnection } from "typeorm";
+import { Sequelize } from 'sequelize';
 
-export const connectDatabase = async () => {
-    return createConnection({
-        type: "sqlite",
-        database: "database.sqlite",
-        entities: [
-            __dirname + "/models/*.ts"
-        ],
-        synchronize: true,
-    });
-};
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: './database.sqlite',
+});
+
+export default sequelize;
